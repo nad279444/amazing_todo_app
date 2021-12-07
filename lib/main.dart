@@ -15,10 +15,10 @@ class Todos extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
             appBarTheme: const AppBarTheme(
-                toolbarTextStyle: TextStyle(fontSize: 24),
+                toolbarTextStyle: TextStyle(fontSize: 24, color: Colors.white),
                 elevation: 0,
-                backgroundColor: Colors.white,
-                iconTheme: IconThemeData(color: Colors.black, size: 30))),
+                backgroundColor: Colors.redAccent,
+                iconTheme: IconThemeData(color: Colors.white, size: 30))),
         home: const Home());
   }
 }
