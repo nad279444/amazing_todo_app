@@ -15,12 +15,16 @@ class ContainerWidget extends StatelessWidget {
             color: Colors.grey, borderRadius: BorderRadius.circular(10.0)),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: Column(
+        child: ListView(
           children: const [
-            Expanded(child: CardWidget()),
-            Expanded(child: CardWidget()),
-            Expanded(child: CardWidget()),
-            Expanded(child: CardWidget()),
+            CardWidget(),
+            CardWidget(),
+            CardWidget(),
+            CardWidget(),
+            CardWidget(),
+            CardWidget(),
+            CardWidget(),
+            CardWidget(),
           ],
         ),
       ),
