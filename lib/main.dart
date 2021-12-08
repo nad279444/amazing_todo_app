@@ -1,6 +1,5 @@
+import 'package:amazing_todo_app/screens/home/home.dart';
 import 'package:flutter/material.dart';
-
-import 'home/home.dart';
 
 void main() {
   runApp(const Todos());
@@ -14,6 +13,7 @@ class Todos extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+            primaryColor: Colors.redAccent,
             appBarTheme: const AppBarTheme(
                 toolbarTextStyle: TextStyle(fontSize: 24, color: Colors.white),
                 elevation: 0,

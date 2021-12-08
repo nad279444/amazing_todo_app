@@ -12,16 +12,11 @@ class ContainerWidget extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.grey, borderRadius: BorderRadius.circular(10.0)),
+            color: Colors.white38, borderRadius: BorderRadius.circular(10.0)),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: ListView(
           children: const [
-            CardWidget(),
-            CardWidget(),
-            CardWidget(),
-            CardWidget(),
-            CardWidget(),
             CardWidget(),
             CardWidget(),
             CardWidget(),

@@ -1,3 +1,4 @@
+import 'package:amazing_todo_app/screens/form/form.dart';
 import 'package:amazing_todo_app/shared_widgets/container_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -67,6 +68,16 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: const ContainerWidget(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => const FormInput()));
+        },
+        backgroundColor: Colors.redAccent,
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
