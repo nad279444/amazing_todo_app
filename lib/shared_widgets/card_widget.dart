@@ -1,10 +1,11 @@
+import 'package:amazing_todo_app/model/todo_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CardWidget extends StatelessWidget {
-  const CardWidget({
-    Key? key,
-  }) : super(key: key);
+  const CardWidget({Key? key, required this.data}) : super(key: key);
+
+  final Datum data;
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +18,9 @@ class CardWidget extends StatelessWidget {
             Icons.check_circle_outline,
             color: Colors.blue,
           ),
-          title: Text('Plan a trip to finland', style: GoogleFonts.firaSans()),
+          title: Text(data.title, style: GoogleFonts.firaSans()),
           subtitle: Text(
-            'The family trip to sweden next summer',
+            data.description,
             style: GoogleFonts.montserratAlternates(),
           ),
           trailing: Row(

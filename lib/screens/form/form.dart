@@ -1,3 +1,5 @@
+import 'package:amazing_todo_app/controller/todo_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -18,6 +20,8 @@ class _FormInputState extends State<FormInput> {
   final TextEditingController _dateController = TextEditingController();
 
   final TextEditingController _timeController = TextEditingController();
+
+  TodoController _todoController = TodoController();
 
   @override
   void dispose() {
@@ -50,7 +54,7 @@ class _FormInputState extends State<FormInput> {
                   title: TextFormField(
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'title cannot be left empty';
+                    return 'Title cannot be left empty';
                   }
                 },
                 controller: _titleController,
@@ -157,13 +161,15 @@ class _FormInputState extends State<FormInput> {
                     style: TextButton.styleFrom(
                         backgroundColor: Colors.redAccent,
                         padding: const EdgeInsets.all(25)),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         String dateTime =
                             '${_dateController.text} ${_timeController.text} ';
-                        print(_titleController.text);
-                        print(_descriptionController.text);
-                        print(dateTime);
+
+                        await _todoController.createTodosRequest(
+                            title: _titleController.text,
+                            description: _descriptionController.text,
+                            dateTime: dateTime);
 
                         _titleController.clear();
                         _descriptionController.clear();

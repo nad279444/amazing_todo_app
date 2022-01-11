@@ -1,3 +1,5 @@
+import 'package:amazing_todo_app/controller/todo_controller.dart';
+import 'package:amazing_todo_app/model/todo_model.dart';
 import 'package:amazing_todo_app/screens/form/form.dart';
 import 'package:amazing_todo_app/shared_widgets/container_widget.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int value = 1;
+
+  final TodoController _todoController = TodoController();
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +71,20 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: const ContainerWidget(),
+      body: FutureBuilder<Todo?>(
+          key: UniqueKey(),
+          future: _todoController.getAllTodosRequest(),
+          builder: (context, AsyncSnapshot snapshot) {
+            print(snapshot.data);
+            switch (snapshot.connectionState) {
+              case ConnectionState.waiting:
+              case ConnectionState.none:
+              case ConnectionState.active:
+                return const Center(child: CircularProgressIndicator());
+              case ConnectionState.done:
+                return ContainerWidget(todos: snapshot.data);
+            }
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
