@@ -45,14 +45,14 @@ class Datum {
         id: json["_id"],
         title: json["title"],
         description: json["description"],
-        dateTime: json["date_time"],
+        dateTime: json["dateTime"],
       );
 
   Map<String, dynamic> toMap() => {
         "_id": id,
         "title": title,
         "description": description,
-        "date_time": dateTime,
+        "dateTime": dateTime,
       };
 }
 

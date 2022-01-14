@@ -10,13 +10,13 @@ class TodoController {
 
   Future<Todo?> getAllTodosRequest() async {
     await _todoService.getAllTodos().then((response) {
-      print(response.body);
       if (response.statusCode == 200) {
         _todo = Todo.fromMap(json.decode(response.body));
       } else {
         _todo = null;
       }
     }).catchError((error) {
+      print(error);
       _todo = null;
     });
     return _todo;

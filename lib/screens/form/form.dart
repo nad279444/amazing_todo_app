@@ -21,7 +21,7 @@ class _FormInputState extends State<FormInput> {
 
   final TextEditingController _timeController = TextEditingController();
 
-  TodoController _todoController = TodoController();
+  final TodoController _todoController = TodoController();
 
   @override
   void dispose() {

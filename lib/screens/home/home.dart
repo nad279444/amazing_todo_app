@@ -75,7 +75,6 @@ class _HomeState extends State<Home> {
           key: UniqueKey(),
           future: _todoController.getAllTodosRequest(),
           builder: (context, AsyncSnapshot snapshot) {
-            print(snapshot.data);
             switch (snapshot.connectionState) {
               case ConnectionState.waiting:
               case ConnectionState.none:
